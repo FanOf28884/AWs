@@ -1,7 +1,7 @@
 const yellow_green = '#90EE90';
 const light_blue = '#8080FF';
 const pink = '#FF7f50';
-
+ 
 var i, SC;
 ChartSB.prototype = {
     getCode: function () {

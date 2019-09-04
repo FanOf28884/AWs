@@ -1,7 +1,7 @@
 //Common setClipboard, cliC CliP setLocalStorage getLocalStorage
 //bodyへのD&Dで .js .json .csvの処理
 //===================================================================
-// COMMON
+// COMMON 
 //===================================================================
 function ______common______(){}
 //画面に .csv .js .jsonがDnDされた時の処理
