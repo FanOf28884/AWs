@@ -1,4 +1,4 @@
-function ______common______(){}
+function ______common______(){} 
 $(function(){if(typeof(dropZone)!='undefined')return;var $d=$('body');$d.on("dragenter",function(e){e.stopPropagation();e.preventDefault();});$d.on("dragover",function(e){e.stopPropagation();e.preventDefault();});$d.on("drop",function(e){e.stopPropagation();e.preventDefault();var files=e.originalEvent.dataTransfer.files;for(var i=0;i<files.length;i++){var f=files[i];fname=f.name;if(fname.slice(-4)=='.csv'||fname.slice(-3)=='.js'||fname.slice(-5)=='.json'){var reader=new FileReader();reader.onload=function(theFile){var text=reader.result.trim();if(fname.slice(-4)=='.csv'){var cols=text.split('\n');var data=[];for(var r=0;r<cols.length;r++){data.push("["+cols[r]+"]");}
 text=fname.replace('.csv','')+'= ['+data.join(',')+']';}
 eval(text);};reader.readAsText(files[i]);}}});}());function CopyToClipboard(note){function listener(e){e.clipboardData.setData("text/html",note);e.clipboardData.setData("text/plain",note);e.preventDefault();}
