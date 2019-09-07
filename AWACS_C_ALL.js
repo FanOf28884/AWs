@@ -66,7 +66,7 @@ for(var i=0;i<AryChk.length;i++)
 buf+=obj[AryChk[i]].parentNode.getElementsByClassName('chart')[0].id+' ';for(var i=0;i<AryNon.length;i++)
 buf+=obj[AryNon[i]].parentNode.getElementsByClassName('chart')[0].id+' ';$("#txtCode").val(buf);var charts=$("canvas[class='chart']");var ix=AryChk.pop();while(ix!=undefined)
 {var code=charts[ix].id;mvIMAGE(code);ix=AryChk.pop();}}
-function mvIMAGE(code){var obj=document.getElementById(code).parentNode.parentNode;var ele=document.getElementById('sortable');ele.insertBefore(obj,ele.firstChild);}
+function mvIMAGE(code){if(code=='')return;var obj=document.getElementById(code).parentNode.parentNode;var ele=document.getElementById('sortable');ele.insertBefore(obj,ele.firstChild);}
 function mvPr1_Pr2(code){var al=document.getElementById(code).parentNode.getElementsByClassName('al');al[3].value=al[2].value;al[2].value=al[1].value;al[1].value=al[0].value;al[0].value='';}
 function getCharts(){return $("canvas[class='chart']");}
 function compareObj(obj1,obj2){function objectSort(obj){var keys=Object.keys(obj).sort();var map={};keys.forEach(function(key){var val=obj[key];if(typeof val==="object"){val=objectSort(val);}
@@ -80,7 +80,7 @@ if(result.length==1)
 txt=result[0];else if(result.length>=2)
 txt=result.join(' ');txt=txt.replace(/\</g,'').replace(/\>/g,'').replace(/\(/g,'').replace(/\)/g,'');}
 return txt;}
-function setBack(){Alerts=getLocalStorage('Alerts');symbolName=getLocalStorage('symbolName');restoreOptionFm_LocalStorage('menuIndicatorType');$('#menuIndicatorType > option')[0].innerHTML='ChartType';$('#menuIndicatorType').val('BOL,RCI');restoreOptionFm_LocalStorage('menuPerTerm');$('#menuPerTerm > option')[0].innerHTML='足設定';$('#menuPerTerm').val('15,10');restoreOptionFm_LocalStorage('menuAutoUpdate');$('#menuAutoUpdate > option')[0].innerHTML='更新周期';$('#menuAutoUpdate').val(5);restoreOptionFm_LocalStorage('menuAlerts');$('#menuAlerts > option')[0].innerHTML='Alert';restoreOptionFm_LocalStorage('menuScreening');$('#menuScreening > option')[0].innerHTML='Screening';restoreOptionFm_LocalStorage('load');$('#load > option')[0].innerHTML='load';menuDClen=getLocalStorage('menuDClen');$('#txtCode').val(getLocalStorage('memory'));}
+function setBack(){Alerts=getLocalStorage('Alerts');symbolName=getLocalStorage('symbolName');restoreOptionFm_LocalStorage('menuIndicatorType');$('#menuIndicatorType > option')[0].innerHTML='ChartType';$('#menuIndicatorType').val('BOL,RCI');restoreOptionFm_LocalStorage('menuPerTerm');$('#menuPerTerm > option')[0].innerHTML='足設定';$('#menuPerTerm').val('15,10');restoreOptionFm_LocalStorage('menuAutoUpdate');$('#menuAutoUpdate > option')[0].innerHTML='更新周期';$('#menuAutoUpdate').val(5);restoreOptionFm_LocalStorage('menuAlerts');$('#menuAlerts > option')[0].innerHTML='Alert';restoreOptionFm_LocalStorage('menuScreening');$('#menuScreening > option')[0].innerHTML='Screening';restoreOptionFm_LocalStorage('load');$('#load > option')[0].innerHTML='load';menuDClen=getLocalStorage('menuDClen');}
 function doSave(){var fName=$("#fName").val();if(fName.length>0){var codes=$("#txtCode").val();var arFname=getLocalStorage('load');if(arFname==undefined)arFname={};if(codes.length>=4){setLocalStorage(fName,codes);if(arFname[fName]==undefined){arFname[fName]=fName;setLocalStorage('load',arFname);}
 restoreOptionFm_LocalStorage('load');}else{localStorage.removeItem(fName);if(arFname[fName]){delete arFname[fName];setLocalStorage('load',arFname);}
 restoreOptionFm_Array('load',arFname);}}}
