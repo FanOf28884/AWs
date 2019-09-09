@@ -26,3 +26,5 @@ setLocalStorage('menuIndicatorType', menuIndicatorType);
 
 menuDClen = {'5': 30, '15': 15, '60': 15, 'D':15, 'W':15, 'M':15};
 setLocalStorage('menuDClen', menuDClen);
+
+setBack();
