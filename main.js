@@ -274,6 +274,7 @@ function sortChked() {
 
 //-- id=codeのIMAGEのparentNodeをsourtable直後に移動させる
 function mvIMAGE(code) {
+	if(code=='') return;
 	var  obj = document.getElementById(code).parentNode.parentNode;
 	var  ele = document.getElementById('sortable');
 	ele.insertBefore(obj, ele.firstChild);
