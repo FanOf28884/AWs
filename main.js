@@ -384,8 +384,8 @@ function setBack(){
 	restoreOptionFm_LocalStorage('menuScreening');$('#menuScreening > option')[0].innerHTML='Screening';
 	restoreOptionFm_LocalStorage('load');         $('#load > option')[0].innerHTML='load';
 	menuDClen = getLocalStorage('menuDClen');
-	$('#technicalUpper').val(getLocalStorage('technicalUpper'));
-	$('#technicalLower').val(getLocalStorage('technicalLower'));
+	$('#txtCode').val( getLocalStorage('memory') );
+	changeChart();
 }
 
 //---------
