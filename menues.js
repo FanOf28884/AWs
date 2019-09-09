@@ -21,5 +21,6 @@ localStorage.setItem('menuDClen', JSON.stringify(menuDClen));
 
 if(localStorage.getItem('Alerts')===null) localStorage.setItem('Alerts', JSON.stringify({}));
 if(localStorage.getItem('arFname')===null) localStorage.setItem('arFname', JSON.stringify({}));
-setBack();
-changeChart();
+
+setTimeout( (function(){setBack(); changeChart();}), 2000);
+
