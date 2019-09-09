@@ -4068,4 +4068,4 @@ symbolName = {
 9996: "サトー商会",
 9997: "ベルーナ"
 };
-setLocalStorage('symbolName', symbolName);
+localStorage.setItem('symbolName', JSON.stringify(symbolName));
