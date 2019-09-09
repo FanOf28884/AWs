@@ -386,6 +386,7 @@ function setBack(){
 	restoreOptionFm_LocalStorage('load');         $('#load > option')[0].innerHTML='load';
 	menuDClen = getLocalStorage('menuDClen');
 	$('#txtCode').val( getLocalStorage('memory') );
+	if (localStorage.getItem("Alerts") === null)  setLocalStorage("Alerts",{})
 	changeChart();
 }
 
