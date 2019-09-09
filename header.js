@@ -137,7 +137,7 @@ var TCB_M5={};
 
 function task_S1()
 {
-    if( typeof(symbolName)=='undefined') setBack();
+    // if( typeof(symbolName)=='undefined') setBack();
     if( ! isJpnMarketOpen()) return;
      Object.keys(TCB_S1).forEach(key => TCB_S1[key]());     //TCB_S1に登録されたtaskを実行
 }
