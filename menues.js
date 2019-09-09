@@ -1,3 +1,11 @@
+function setLocalStorage(c_name, val) {
+    if (typeof (val) == "object")
+        localStorage.setItem(c_name, JSON.stringify(val));
+    else
+        localStorage.setItem(c_name, val);
+    return;
+}
+
 menuPerTerm =  {'5分1日':'5,1','5分2日':'5,2', '5分3日':'5,3', '5分5日':'5,5', '15分5日':'15,5', '15分10日':'15,10', '15分20日':'15,20', '60分20日':'60,20',
 	'日足6か月':'D,120', '日足1年':'D,240', '週足3年':'W,156', '月足10年':'M,120'};
 setLocalStorage('menuPerTerm', menuPerTerm);
