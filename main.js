@@ -10,7 +10,7 @@ var  undoBuf = [];
 var  undoCnt = 0;
 var gChartMode;
 var gCodes = [];
-var gClippingMode = false;	// クリックで画像保存
+var gClippingMode = 0;	//  チャートのクリック時　0:何もしない　1:価格取得　2:クリッピング
 var gDClen = 16;				// Donchan幅
 var gDCanytime= true;		// Donchanを 常に表示
 var gClickedCode;				// 最後にクリックされたcode
@@ -93,7 +93,7 @@ function changeChart() {
 
 	//mouse clickでチャート座標を検出し、価格を<input>できるように設定する
 	//この部分は,dynamicに変更されるごとに実行する必要があり、USER INTERFACEへ移動しないこと
-	if( ! gClippingMode ) {
+	if( ! gClippingMode==1 ) {
 		$('.chart').on("click", function(e) {
 			var rect = e.target.getBoundingClientRect();
 			var x = e.clientX - rect.left;
@@ -111,7 +111,7 @@ function changeChart() {
 			gClickedCode = code;
 			gPickedColor = getPixColor(stock[code].sd, x, y); 
 		});
-	} else {
+	} else if( ! gClippingMode==2 ) {
 		// Deep Learning用にClickした座標を起点として2日分の過去画像をpngで保存する
 		$('.chart').on("click", function(e) {
 			var rect = e.target.getBoundingClientRect();
