@@ -93,7 +93,7 @@ function changeChart() {
 
 	//mouse clickでチャート座標を検出し、価格を<input>できるように設定する
 	//この部分は,dynamicに変更されるごとに実行する必要があり、USER INTERFACEへ移動しないこと
-	if( ! gClippingMode==1 ) {
+	if( gClippingMode==1 ) {
 		$('.chart').on("click", function(e) {
 			var rect = e.target.getBoundingClientRect();
 			var x = e.clientX - rect.left;
@@ -111,7 +111,7 @@ function changeChart() {
 			gClickedCode = code;
 			gPickedColor = getPixColor(stock[code].sd, x, y); 
 		});
-	} else if( ! gClippingMode==2 ) {
+	} else if( gClippingMode==2 ) {
 		// Deep Learning用にClickした座標を起点として2日分の過去画像をpngで保存する
 		$('.chart').on("click", function(e) {
 			var rect = e.target.getBoundingClientRect();
