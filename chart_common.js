@@ -8,11 +8,14 @@ var gSBterm='';
 var gTechUP='';
 var gTechLO='';
 function apndCanvas(code, symbName) {
-	var buff =   '<li class = "ui-state-default"> <div style = "width: 100%; background-color: rgb(240, 240, 240);" align = "left"> <input type = "checkbox" name = "chkbox"> <a> code </a> <a> symbolName</a> '
+	var buff =   '<li class = "ui-state-default"> <div style = "width: 100%; background-color: rgb(240, 240, 240);" align = "left"> '
 				+ '<input class = "al" name = "al0" value = "" size =9 style = "font-size:80%; border-width:1px; background-color:#F8F8F8;">→'
 				+ '<input class = "al" name = "al1" value = "" size =9 style = "font-size:80%; border-width:1px; background-color:#F8F8F8;">→'
 				+ '<input class = "al" name = "al2" value = "" size =9 style = "font-size:80%; border-width:1px; background-color:#F8F8F8;">→'
-				+ '<input class = "al" name = "al3" value = "" size =6 style = "font-size:80%; border-width:1px; background-color:#F8F8F8;"><br><div class="memo"></div>'
+				+ '<input class = "al" name = "al3" value = "" size =6 style = "font-size:80%; border-width:1px; background-color:#F8F8F8;">'
+				+ '<a> code </a> <a> symbolName</a> '
+				+ '<input type = "checkbox" name = "chkbox"> '
+				+ '<br><div class="memo"></div>'
 				+ '<canvas class = "chart" id = "code" randomStr ="' + gRandomStr + '"'
 				+ 'width = "610" height = "295"></canvas> </div> </li>';
 	if(gChartMode=='SB' && (window.screen.width==1200 || window.screen.width==1800))
@@ -373,4 +376,3 @@ function ocrNum(sd, OCR_DIC, xx, yy, w) {   //xx: 左側    yy:高さ中心     
 	} while(x<xx+w);
 	return parseInt(rtn);
 }
-
