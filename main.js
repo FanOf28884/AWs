@@ -382,7 +382,7 @@ function setBack(){
 	restoreOptionFm_LocalStorage('menuAutoUpdate'); $('#menuAutoUpdate > option')[0].innerHTML='更新周期'; 		$('#menuAutoUpdate').val(5);
 	restoreOptionFm_LocalStorage('menuAlerts');   $('#menuAlerts > option')[0].innerHTML='Alert';
 	restoreOptionFm_LocalStorage('menuScreening');$('#menuScreening > option')[0].innerHTML='Screening';
-	restoreOptionFm_LocalStorage('arFname');         $('#load > option')[0].innerHTML='load';
+	restoreOptionFm_LocalStorage('arFname');         $('#arFname > option')[0].innerHTML='load';
 	menuDClen = getLocalStorage('menuDClen');
 	$('#txtCode').val( getLocalStorage('memory') );
 }
