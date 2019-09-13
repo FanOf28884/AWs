@@ -108,7 +108,7 @@ $(function() {
 	// });
 
 
-	$("select#load").on('change', function() {
+	$("select#arFname").on('change', function() {
 		var codes = getLocalStorage($(this).val());
 		$("#txtCode").val( codes );
 		$("#fName").val($(this).val());
