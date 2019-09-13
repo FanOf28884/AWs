@@ -5,10 +5,10 @@ localStorage.setItem('menuPerTerm', JSON.stringify(menuPerTerm));
 menuAutoUpdate = {'1分更新':1, '2分更新':2, '5分更新':5, '15分更新':15, '30分更新':30, '60分更新':60};
 localStorage.setItem('menuAutoUpdate', JSON.stringify(menuAutoUpdate));
 
-menuAlerts = {SNS: 1, TTS: 2, SNSTTS: 3};
+menuAlerts = {'SNS': 1, 'TTS': 2, 'SNSTTS': 3};
 localStorage.setItem('menuAlerts', JSON.stringify(menuAlerts));
 
-menuScreening = {SNS: 1, TTS: 2, SNSTTS: 3};
+menuScreening = {'SNS': 1, 'TTS': 2, 'SNSTTS': 3};
 localStorage.setItem('menuScreening', JSON.stringify(menuScreening));
 
 //Screeningのコードはmenuの一つ下に書く
