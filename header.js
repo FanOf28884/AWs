@@ -87,7 +87,7 @@ $('head').append(buff);
 	buff +='<input type="button" id="MPlus" value="M+" style="vertical-align: middle; list-style:none; margin:0px; padding:0px; overflow:hidden;background-color:#D0D0FF;">';
 	buff +='<input type="button" id="MR" value="MR" style="vertical-align: middle; list-style:none; margin:0px; padding:0px; overflow:hidden;background-color:#D0D0FF;"> ';
     // load, 銘柄コードを貼り付け, doSave, fileName
-    buff +='<select id="load" style="vertical-align: middle; background-color:#ffe8e8;"> <option value="">load</option></select>';
+    buff +='<select id="arFname" style="vertical-align: middle; background-color:#ffe8e8;"> <option value="">load</option></select>';
 	buff +='<textarea id="txtCode" rows="1" cols="25" style="vertical-align: middle; background-color:#ffe8e8; width: 187px;height: 19px;border-bottom-width: 0.3;" value="html textbox droppable" placeholder="銘柄コードを貼付け"></textarea>';
 	buff +='<input type="button" id="doSave" value="save>" onclick="doSavePlus()" style="vertical-align: middle; border-width:1px;background-color:#fff8f8;">';
 	buff +='<input id="fName" value="" width="50px" style="vertical-align: middle; color:#808080;background-color:#ffe8e8;width: 80px;height: 19px;" placeholder="file_name">';
@@ -108,7 +108,7 @@ if(document.URL.indexOf('https://chart.iris.sbisec.co.jp/sbi/as/Mchart-mchart.ht
     $('body').attr('style','margin-left:5px');
     $('body').append(buff);task_M1
 }
-function doSavePlus(){doSave(); $('#load > option')[0].innerHTML=' load';}
+function doSavePlus(){doSave(); $('#arFname > option')[0].innerHTML=' load';}
 
 //LINE message
 //var sock = new WebSocket('ws://127.0.0.1:5001');	
