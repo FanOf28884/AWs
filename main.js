@@ -35,7 +35,7 @@ function changeChart() {
 
 	// symbolNameが読み込めていなければ、setBack()で読み込む
 	if( typeof(symbolName)=='undefined')
-		setBack();
+		setTimeout( setBack, 2000);
 //		pushChkMark();
 	// Alertsの設定が変わっていたら localStorageに保存する
 	// まず現在のChartの設定値をAlertsにセットする
@@ -93,8 +93,8 @@ function changeChart() {
 
 	//mouse clickでチャート座標を検出し、価格を<input>できるように設定する
 	//この部分は,dynamicに変更されるごとに実行する必要があり、USER INTERFACEへ移動しないこと
-	if( gClippingMode==1 ) {
-		$('.chart').on("click", function(e) {
+	$('.chart').on("click", function(e) {
+		if( gClippingMode==1 ) {
 			var rect = e.target.getBoundingClientRect();
 			var x = e.clientX - rect.left;
 			var y = e.clientY - rect.top;
@@ -110,10 +110,8 @@ function changeChart() {
 			Alerts[code].al3 = alrt[3].value;
 			gClickedCode = code;
 			gPickedColor = getPixColor(stock[code].sd, x, y); 
-		});
-	} else if( gClippingMode==2 ) {
-		// Deep Learning用にClickした座標を起点として2日分の過去画像をpngで保存する
-		$('.chart').on("click", function(e) {
+
+		} else if( gClippingMode==2 ) {			// Deep Learning用にClickした座標を起点として2日分の過去画像をpngで保存する
 			var rect = e.target.getBoundingClientRect();
 			var x = e.clientX - rect.left;
 			var y = e.clientY - rect.top;
@@ -154,8 +152,9 @@ function changeChart() {
 				// 画像保存のクリックイベントを発生させる
 				a.click();
 			}
-		});
-	}
+		}
+			
+	});
 }
 //
 //====================================================
@@ -383,7 +382,7 @@ function setBack(){
 	restoreOptionFm_LocalStorage('menuAutoUpdate'); $('#menuAutoUpdate > option')[0].innerHTML='更新周期'; 		$('#menuAutoUpdate').val(5);
 	restoreOptionFm_LocalStorage('menuAlerts');   $('#menuAlerts > option')[0].innerHTML='Alert';
 	restoreOptionFm_LocalStorage('menuScreening');$('#menuScreening > option')[0].innerHTML='Screening';
-	restoreOptionFm_LocalStorage('load');         $('#load > option')[0].innerHTML='load';
+	restoreOptionFm_LocalStorage('arFname');         $('#load > option')[0].innerHTML='load';
 	menuDClen = getLocalStorage('menuDClen');
 	$('#txtCode').val( getLocalStorage('memory') );
 }
@@ -393,22 +392,22 @@ function doSave() {
 	var fName = $("#fName").val();
 	if( fName.length>0) {
 		var codes = $("#txtCode").val();
-		var arFname = getLocalStorage('load');
+		var arFname = getLocalStorage('arFname');
 		if( arFname==undefined ) arFname = {};
 		if( codes.length>=4 ) {
 			setLocalStorage( fName, codes);
 			if( arFname[fName]==undefined ) {
 				arFname[fName] = fName;
-				setLocalStorage('load', arFname);
+				setLocalStorage('arFname', arFname);
 			}
-			restoreOptionFm_LocalStorage('load');
+			restoreOptionFm_LocalStorage('arFname');
 		} else {
 			localStorage.removeItem(fName);
 			if( arFname[fName] ) {
 				delete arFname[fName];
-				setLocalStorage('load', arFname);
+				setLocalStorage('arFname', arFname);
 			}
-			restoreOptionFm_Array('load', arFname);
+			restoreOptionFm_Array('arFname', arFname);
 		}
 	}
 }
