@@ -8,4 +8,3 @@ localStorage.setItem('TOPIX30', JSON.stringify(TOPIX30));  	delete TOPIX30;
 localStorage.setItem('TOPIX100', JSON.stringify(TOPIX100));	delete TOPIX100;
 localStorage.setItem('NK225', JSON.stringify(NK225));		delete NK225;
 localStorage.setItem('NK400', JSON.stringify(NK400));		delete NK400;
-localStorage.setItem('instruments', JSON.stringify({}));
