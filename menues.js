@@ -20,6 +20,6 @@ if(localStorage.getItem('Alerts')===null)
 localStorage.setItem('Alerts',JSON.stringify({}));
 
 if(localStorage.getItem('arFname')===null)
-localStorage.setItem('arFname',JSON.stringify(arFname));
+localStorage.setItem('arFname',JSON.stringify( {} ));
 
 setTimeout((function(){setBack();changeChart();}),2000);
