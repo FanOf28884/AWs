@@ -389,7 +389,7 @@ function setBack(){
 
 //---------
 function doSave() {
-	var fName = $("#fName").val();
+	var fName = $("#arFname").val();
 	if( fName.length>0) {
 		var codes = $("#txtCode").val();
 		var arFname = getLocalStorage('arFname');
